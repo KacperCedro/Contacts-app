@@ -21,7 +21,7 @@ namespace ContactsApp.Controls
     /// </summary>
     public partial class ContactCellUserControl : UserControl
     {
-        private Contact contact;
+        //private Contact contact;
 
         public Contact Contact
         {
@@ -38,8 +38,8 @@ namespace ContactsApp.Controls
             if (control != null)
             {
                 control.contactNameTextBlock.Text = (e.NewValue as Contact).Name;
-                control.contactNameTextBlock.Text = (e.NewValue as Contact).Email;
-                control.contactNameTextBlock.Text = (e.NewValue as Contact).PhoneNumber;
+                control.contactEmailTextBlock.Text = (e.NewValue as Contact).Email;
+                control.contactPhoneNumberTextBlock.Text = (e.NewValue as Contact).PhoneNumber;
             }
         }
         public ContactCellUserControl()

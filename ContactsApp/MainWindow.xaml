@@ -6,7 +6,7 @@
         xmlns:uc="clr-namespace:ContactsApp.Controls"
         xmlns:local="clr-namespace:ContactsApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="350">
+        Title="MainWindow" Height="500" Width="350">
     <Grid>
         <StackPanel Margin="10">
             <Grid>
@@ -19,29 +19,34 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Button x:Name="createNewContactButton"
-                        Content="+ new contact"
+                        Content="create new contact"
                         Grid.Column="0"
                         Grid.Row="0"
-                        Click="createNewContactButton_Click"/>
+                  
+                        Click="createNewContactButton_Click"
+                        Margin="5,0,5,0"/>
                 <TextBox x:Name="searchBox"
                          Grid.Column="1"
                          Grid.Row="0"
-                         TextChanged="searchBox_TextChanged"/>
+                         TextChanged="searchBox_TextChanged"
+                         Margin="5,0,5,0"/>
                 <ListView x:Name="contactsListView"
                           Grid.Column="0"
                           Grid.Row="1"
                           Grid.ColumnSpan="2"
-                          Margin="2"
-                          Padding="10"
-                          SelectionChanged="contactsListView_SelectionChanged">
+                          Margin="0, 1, 0, 1"
+                          SelectionChanged="contactsListView_SelectionChanged"
+                          BorderThickness="0">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="300"/>
+                            <Setter Property="BorderThickness" Value="0"/>
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <uc:ContactCellUserControl Contact="{Binding}"/>
+                            <uc:ContactCellUserControl Contact="{Binding }"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

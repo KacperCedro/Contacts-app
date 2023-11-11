@@ -44,12 +44,22 @@ namespace ContactsApp
         }
         private void createNewContactButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NewContactWindow newContactWindow = new NewContactWindow();
+            newContactWindow.ShowDialog();
+            ReadDataBase();
         }
 
         private void contactsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Contact selectedContact = contactsListView.SelectedItem as Contact;
 
+            if (selectedContact != null)
+            {
+                ContactDetailsWindow contactDetailsWindow = new ContactDetailsWindow(selectedContact);
+                contactDetailsWindow.ShowDialog();
+
+                ReadDataBase();
+            }
         }
 
         private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -57,6 +67,8 @@ namespace ContactsApp
             TextBox searchBox = sender as TextBox;
             string query = searchBox.Text.ToLower();
             List<Contact> filteredList = contacts.Where(x => x.Name.ToLower().Contains(query)).ToList();
+
+            contactsListView.ItemsSource = filteredList;
         }
     }
 }

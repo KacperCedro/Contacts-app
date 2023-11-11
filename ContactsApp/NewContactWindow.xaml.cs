@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ContactsApp.Classes;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,26 @@ namespace ContactsApp
         public NewContactWindow()
         {
             InitializeComponent();
+
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        }
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Contact contact = new Contact()
+            {
+                Name = nameTextBox.Text,
+                Email = emailTextBox.Text,
+                PhoneNumber = phoneTextBox.Text,
+            };
+
+            using(SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+            {
+                connection.CreateTable<Contact>();
+                connection.Insert(contact);
+            }
+
+            this.Close();
         }
     }
 }

@@ -5,28 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ContactsApp.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="90" d:DesignWidth="350">
+             d:DesignHeight="90" d:DesignWidth="340">
     <Grid Background="#AAE5E5E5">
-        <StackPanel Margin="0,5,0,5">
+        <StackPanel Width="340">
             <TextBlock x:Name="contactNameTextBlock"
                        Text="Name"
                        FontSize="20"
                        FontWeight="Bold"
-                       Padding="10, 1,1,0"
-                       Margin="0,1,0,1"/>
+                       Padding="10, 1,1,0"/>
             <TextBlock x:Name="contactEmailTextBlock"
                        Text="some.emeail@domain.com"
                        FontSize="15"
                        Foreground="Blue"
                        FontWeight="Normal"
-                       Padding="10, 1,1,0"
-                       Margin="0,1,0,1"/>
+                       Padding="10, 1,1,0"/>
             <TextBlock x:Name="contactPhoneNumberTextBlock"
                        Text="123 1234 1234"
                        FontSize="15"
                        FontStyle="Italic"
                        Padding="10, 1,1,0"
-                       Margin="0,1,0,1"/>
+                       />
         </StackPanel>
     </Grid>
 </UserControl>

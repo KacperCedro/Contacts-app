@@ -1,11 +1,13 @@
-﻿<Window x:Class="ContactsApp.NewContactWindow"
+﻿<Window x:Class="ContactsApp.ContactDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactsApp"
         mc:Ignorable="d"
-        Title="New contact" Height="180" Width="350" WindowStartupLocation="CenterOwner" WindowStyle="None" ResizeMode="NoResize" UseLayoutRounding="True" >
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Title="Contact details" Height="200" Width="350">
     <Grid>
         <StackPanel Margin="10">
             <TextBlock Text="Name:"/>
@@ -17,8 +19,15 @@
             <TextBlock Text="Phone:"/>
             <TextBox x:Name="phoneTextBox"
                      Margin="0,0,0,5"/>
-            <Button Content="Save"
-                    Click="SaveButton_Click"/>
+            <Button Content="Update"
+                    Name="updateButton"
+                    Click="updateButton_Click"
+                     Margin="0,0,0,5"/>
+            <Button Content="Delete"
+                    Name="deleteButton"
+                    Background="Red"
+                    Foreground="White"
+                    Click="deleteButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
